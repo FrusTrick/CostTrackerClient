@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
-import SubscriptionList from './components/subscriptionList'
+import AppRouter from './routes/AppRouter'
 
 function App() {
   
   return (
     <>
-      <SubscriptionList />
+      <AppRouter />
     </>
   )
 }

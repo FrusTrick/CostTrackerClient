@@ -1,10 +1,11 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
 import UserDash from "../pages/UserDashPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Layout from "../components/Layout";
+import AdminDashPage from "../pages/AdminDashPage";
+import MySubscriptionsPage from "../pages/MySubscriptionsPage";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -17,16 +18,16 @@ const router = createBrowserRouter([
             
             },
             {
-                path: "/login",
-                element: <LoginPage />
-            },
-            {
-                path: "/register",
-                element: <RegisterPage />
-            },
-            {
                 path: "/dashboard",
-                element: <UserDash />
+                element: (<ProtectedRoute> <UserDash /> </ProtectedRoute>)
+            },
+            {
+                path: "/admindashboard",
+                element: (<ProtectedRoute> <AdminDashPage /> </ProtectedRoute>)
+            },
+            {
+                path:"/subscriptions",
+                element:(<ProtectedRoute> <MySubscriptionsPage/> </ProtectedRoute>)
             },
             {
                 path: "*",
